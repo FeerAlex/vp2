@@ -1,5 +1,9 @@
 {
-	"name": "vp2",
-	"version": "0.1.0",
-	"devDependencies": {}
+  "name": "vp2",
+  "version": "0.1.0",
+  "devDependencies": {
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0",
+    "jade": "^1.11.0"
+  }
 }
