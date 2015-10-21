@@ -12,31 +12,31 @@ var
 var
 	paths = {
 		jade : {
-			location: 'app/jade_pages/**/*.jade',
-			compiled: 'app/html_pages/*.jade',
-			destination: '.'
+			location    : 'app/jade_pages/**/*.jade',
+			compiled    : 'app/jade_pages/_pages/*.jade',
+			destination : '.'
 		},
 
 		scss : {
-			location: 'app/css/scss/**/*.scss',
-			entryPoint: 'app/css/css/main.css'
+			location    : 'app/css/scss/*.scss',
+			entryPoint  : 'app/css/css/main.css'
 		},
 
-		compass: {
-			configFile: 'config.rb',
-			cssFolder: 'app/css/css/',
-			scssFolder: 'app/css/scss/',
-			imgFolder: 'app/img/'
+		compass : {
+			configFile  : 'config.rb',
+			cssFolder   : 'app/css/css/',
+			scssFolder  : 'app/css/scss/',
+			imgFolder   : 'app/img/'
 		},
 
-		browserSync: {
-			baseDir: './',
-			watchPaths: ['app/html_pages/*.html', 'app/css/css/*.css', 'app/js/*.js']
+		browserSync : {
+			baseDir : './',
+			watchPaths : ['*.html', 'app/css/css/*.css', 'app/js/*.js']
 		}
 
 	}
 
-/* ----------------jade---------------- */
+/* --------- jade --------- */
 
 gulp.task('jade', function() {
 	gulp.src(paths.jade.compiled)
@@ -47,7 +47,7 @@ gulp.task('jade', function() {
 		.pipe(gulp.dest(paths.jade.destination));
 });
 
-/* ----------------scss-compass---------------- */
+/* --------- scss-compass --------- */
 
 gulp.task('compass', function() {
 	gulp.src(paths.scss.location)
@@ -60,7 +60,7 @@ gulp.task('compass', function() {
 		}));
 });
 
-/* ----------------browser-sync---------------- */
+/* --------- browser sync --------- */
 
 gulp.task('sync', function() {
 	browserSync.init({
