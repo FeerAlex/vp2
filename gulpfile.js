@@ -14,7 +14,7 @@ var
 		jade : {
 			location    : 'app/jade_pages/**/*.jade',
 			compiled    : 'app/jade_pages/_pages/*.jade',
-			destination : '.'
+			destination : 'app/html_pages/'
 		},
 
 		scss : {
@@ -30,8 +30,8 @@ var
 		},
 
 		browserSync : {
-			baseDir : './',
-			watchPaths : ['*.html', 'app/css/css/*.css', 'app/js/*.js']
+			baseDir : 'app/html_pages/',
+			watchPaths : ['app/html_pages/*.html', 'app/css/css/*.css', 'app/js/*.js']
 		}
 
 	}
