@@ -1,33 +1,39 @@
-include _common/_mixins
-
 doctype html
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-html
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <!--<![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <!--<![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+html(lang="ru-RU")
 	head
-		meta(name="viewport" content="device-width")
-		link(rel="stylesheet" type='text/css' href="/css/main.css")
+		meta(http-equiv = "Content-Type", content = "text/html; charset=utf-8")
+		meta(http-equiv = "X-UA-Compatible", content = "IE=edge, chrome=1")
+		meta(name = "viewport" content = "width=device-width")
 		title
 			block title
+		//- SEO
+		meta(name="description" content="loftschool_homework")
+		meta(name="keywords" content="loftschool_homework")
+		meta(name="author" content="Feer Alexander")
+		//- FAVICON
+		link(rel="shortcut icon" href="img/favicon-16x16.png" type="image/x-icon")
+		link(rel="icon" href="img/favicon-16x16.png" type="image/x-icon")
+		//- CSS
+		link(rel="stylesheet" type='text/css' href="style/css/main.css")
+		//- MODERNIZER
+		script(src="bower_components/modernizer/modernizr.js")
 	body
 		.wrapper
 			.maincontent
-
 				include _common/_header
+				include _common/_nav
+				include _common/_breadcrumbs
 
-				+nav('navigation', ['Главная', 'Новости', "О компании", "Сравнение"], 2)
+				block content
 
-				.content-wrapper
-					.container
+		include _common/_footer
 
-						.content
-							.content__inner
-
-								block content
-		footer.footer
-			.container
-				.footer__content
-					| &copy; Все права защищены
-		script('/js/main.js')
+		script(src="bower_components/jquery/dist/jquery.js")
+		script(src="js/_plugins/jquery-ui.js")
+		script(src="js/_plugins/jquery.columnizer.min.js")
+		script(src="js/_plugins/select2.min.js")
+		script(src="js/main.js")

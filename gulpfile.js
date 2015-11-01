@@ -4,7 +4,7 @@ var
 	gulp        = require('gulp'),
 	compass     = require('gulp-compass'),
 	jade        = require('gulp-jade'),
-	browserSync = require('browser-sync').create(),
+	browserSync = require('browser-sync'),
 	plumber     = require('gulp-plumber');
 
 /* ----------------paths---------------- */
@@ -14,26 +14,31 @@ var
 		jade : {
 			location    : 'app/jade_pages/**/*.jade',
 			compiled    : 'app/jade_pages/_pages/*.jade',
-			destination : 'app/html_pages/'
+			destination : 'app/'
 		},
 
 		scss : {
-			location    : 'app/css/scss/*.scss',
-			entryPoint  : 'app/css/css/main.css'
+			location    : 'app/style/scss/**/*.scss',
+			entryPoint  : 'app/style/css/**/*.css'
 		},
 
 		compass : {
 			configFile  : 'config.rb',
-			cssFolder   : 'app/css/css/',
-			scssFolder  : 'app/css/scss/',
-			imgFolder   : 'app/img/'
+			cssFolder   : 'app/style/css',
+			scssFolder  : 'app/style/scss',
+			imgFolder   : 'app/img'
 		},
 
-		browserSync : {
-			baseDir : 'app/html_pages/',
-			watchPaths : ['app/html_pages/*.html', 'app/css/css/*.css', 'app/js/*.js']
-		}
+		// js : {
+		// 	location    : 'app/js/main.js',
+		// 	plugins     : 'app/js/_plugins/*.js',
+		// 	destination : 'js'
+		// },
 
+		browserSync : {
+			baseDir : 'app/',
+			watchPaths : ['app/*.html', 'app/style/css/*.css', 'app/js/*.js']
+		}
 	}
 
 /* --------- jade --------- */
@@ -63,7 +68,7 @@ gulp.task('compass', function() {
 /* --------- browser sync --------- */
 
 gulp.task('sync', function() {
-	browserSync.init({
+	browserSync({
 		server: {
 			baseDir: paths.browserSync.baseDir
 		}
@@ -72,7 +77,7 @@ gulp.task('sync', function() {
 
 /* --------- watch --------- */
 
-gulp.task('watch', function(){
+gulp.task('watch', function() {
 	gulp.watch(paths.jade.location, ['jade']);
 	gulp.watch(paths.scss.location, ['compass']);
 	

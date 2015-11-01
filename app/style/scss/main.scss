@@ -1,0 +1,50 @@
+@import "compass";
+
+/* --------- normalize --------- */
+
+@import "_misc/normalize";
+
+/* ------------ fonts ------------*/
+
+@import "_misc/_fonts";
+
+/* --------- mixins --------- */
+
+@import "_misc/mixins";
+
+/* --------- adjustment --------- */
+
+@import "_misc/_adjustment";
+
+/* ----- misc icons sprite ----- */
+
+$misc-sprite: sprite-map("icons/_misc/*.png", $spacing: 70px);
+
+/* ------- common colors ------- */
+
+$black: #333;
+$orange: #ff6600;
+$grey: #dee1e4;
+
+/* ---------- plugins ---------- */
+
+@import "_plugins/jquery-ui";
+@import "_plugins/select2";
+
+/* ---------- widgets ---------- */
+
+@import "_widgets/_select";
+@import "_widgets/_slider";
+
+/* ---------- sections ---------- */
+
+@import "sections/_attension";
+@import "sections/_breadcrumbs";
+@import "sections/_content";
+@import "sections/_header";
+@import "sections/_nav";
+@import "sections/_pagination";
+@import "sections/_products";
+@import "sections/_sidebar";
+@import "sections/_sort";
+@import "sections/_footer";

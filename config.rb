@@ -1,8 +1,8 @@
 require 'compass'
 
 http_path = "/"
-css_dir = "app/css/css"
-sass_dir = "app/css/scss"
+css_dir = "app/style/css"
+sass_dir = "app/style/scss"
 images_dir = "app/img"
 javascripts_dir = "app/js"
 
