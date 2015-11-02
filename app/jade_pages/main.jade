@@ -25,10 +25,15 @@ html(lang="ru-RU")
 		.wrapper
 			.maincontent
 				include _common/_header
-				include _common/_nav
-				include _common/_breadcrumbs
 
-				block content
+				article.content-wrapper
+					.container
+						.main-title
+							block content
+						.main-content
+							include _common/_sidebar
+							include _common/_content
+						include _common/_main_footer
 
 		include _common/_footer
 

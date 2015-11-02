@@ -26,3 +26,17 @@ header.header
 					each item in items
 						li.menu__item
 							a(href="#" class="menu__link")= item
+nav.nav
+	.container
+		ul.nav__list
+			- var telephones = ['Планшеты', 'Мобильные телефоны', 'Mp3 плееры', 'Персональные компьютеры', 'Ноутбуки', 'Аксессуары', 'Бытовая техника']
+			each telephone in telephones
+				li(class="nav__item nav__item_" + ((telephone == "Мобильные телефоны") ? "active" : ""))
+					a(href="#" class="nav__link")= telephone
+.breadcrumbs
+	.container
+		ul.breadcrumbs__list
+			- var menus = ["Главная", "Каталог"]
+			each menu in menus
+				li(class="breadcrumbs__item" + ((menu == "Каталог") ? " active" : ""))
+					a(href="#" class="breadcrumbs__link")= menu
