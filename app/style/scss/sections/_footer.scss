@@ -1,34 +1,23 @@
 .footer {
-	background: url(../../img/bg.jpg) center center;
-	position: relative;
+	background: url("../../../img/bg.jpg");
+	padding-top: 35px;
+	@include clearfix();
 }
-
-.footer__top {
-	padding-top: 34px;
-}
-
-.footer__left {
-	width: 45%;
+.logo__tip {
+	width: 50%;
 	float: left;
-	padding-top: 34px;
+	padding-top: 37px;
 }
-
-.footer__right {
-	width: 55%;
-	float: left;
+.footer__links {
+	width: 50%;
+	float: right;
 	text-align: right;
 }
-
-.logo_footer {
-	.logo__img {
-		min-width: 255px;
-	}
+.footer__links__list {
+	margin-bottom: 17px;
 }
 
-$dark-socials-map: sprite-map("icons/socials__dark/*.png", $spacing: 70px);
-
-.socials_footer {
-	margin-bottom: 21px;
+.footer {
 
 	.socials__link {
 		width: 45px;
@@ -40,6 +29,8 @@ $dark-socials-map: sprite-map("icons/socials__dark/*.png", $spacing: 70px);
 	.socials__item {
 		margin-left: 26px;
 	}
+
+	$dark-socials-map: sprite-map("icons/socials__dark/*.png", $spacing: 70px);
 
 	$items: fb, vk, tw;
 	@each $item in $items {
@@ -61,35 +52,25 @@ $dark-socials-map: sprite-map("icons/socials__dark/*.png", $spacing: 70px);
 		}
 	}
 }
-
-.footer__nav {
-	font-size: 0;
+.footer__menu__list {
+	margin: 0 0 26px -28px;
 }
-
-.footer__nav-item {
-	@include inlineblock();
-	margin-left: 33px;
-	margin-bottom: 28px;
+.footer__menu__item {
+	display: inline-block;
+	margin: 0 0 0 28px;
 }
-
-.footer__nav-link {
+.footer__menu__link {
+	font-family: "Open Sans Regular";
 	font-size: 14px;
-	line-height: 16px;
+	line-height: 36px;
 	color: #fff;
-
-	&:hover {
-		text-decoration: none;
-	}
 }
-
-.footer__bottom {
+.copy__right {
+	height: 28px;
 	border-top: 1px solid #494949;
-	text-align: center;
-	color: #fff;
+	font-family: "Open Sans Regular";
 	font-size: 12px;
-	line-height: 14px;
-}
-
-.footer__copyright {
-	padding: 8px 0;
+	color: #fff;
+	text-align: center;
+	line-height: 28px;
 }

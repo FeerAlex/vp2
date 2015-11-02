@@ -19,26 +19,25 @@ html(lang="ru-RU")
 		link(rel="icon" href="img/favicon-16x16.png" type="image/x-icon")
 		//- CSS
 		link(rel="stylesheet" type='text/css' href="style/css/main.css")
+		link(rel="stylesheet" type='text/css' href="bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css")
+		link(rel="stylesheet" type='text/css' href="bower_components/select2/dist/css/select2.css")
 		//- MODERNIZER
 		script(src="bower_components/modernizer/modernizr.js")
 	body
-		.wrapper
-			.maincontent
-				include _common/_header
+		
+		include _common/_header
 
-				article.content-wrapper
-					.container
-						.main-title
-							block content
-						.main-content
-							include _common/_sidebar
-							include _common/_content
-						include _common/_main_footer
+		main
+			.mid
+				include _common/_content
+				include _common/_aside
+			.mid
+				include _common/_main_footer
 
 		include _common/_footer
 
 		script(src="bower_components/jquery/dist/jquery.js")
-		script(src="js/_plugins/jquery-ui.js")
-		script(src="js/_plugins/jquery.columnizer.min.js")
-		script(src="js/_plugins/select2.min.js")
+		script(src="bower_components/jquery-ui/jquery-ui.js")
+		script(src="bower_components/jquery.columnizer/src/jquery.columnizer.min.js")
+		script(src="bower_components/select2/dist/js/select2.min.js")
 		script(src="js/main.js")

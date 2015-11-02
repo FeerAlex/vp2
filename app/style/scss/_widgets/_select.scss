@@ -29,7 +29,7 @@ $select-tr-map: sprite-map('icons/select-tr/*.png', $spacing: 70px);
 
 	.select2-selection__rendered {
 		font-size: 12px;
-		@include open-sans(light);
+		font-family: "Open Sans Light";
 		color: #7f7f7f;
 	}
 
@@ -44,12 +44,12 @@ $select-tr-map: sprite-map('icons/select-tr/*.png', $spacing: 70px);
 			background: #fff;
 			font-size: 14px;
 			line-height: 17px;
-			@include open-sans(light);
+			font-family: "Open Sans Light";
 			color: #7f7f7f;
 
 			&.select2-results__option--kighlighted {
 				color: #333 !important;
-				@include open-sans(semibold);
+				font-family: "Open Sans Semibold";
 			}
 		}
 	}

@@ -1,79 +1,71 @@
-.content
-	.sort
-		.sort__left
-			.sort__select--wrap
-				.sort__title
-					| Сортировать по
-				.sort__select
-					select.sort__select-elem
-						- var options = ["по цене", "по популярности"]
-						each option in options
-							option(value="")= option
-		.sort__right
-			.sort__title
-				| Вид каталога
-			.sort__view
-				ul.sort__view-list
-					- var items = ['rows', 'grids', 'lines']
-					each item in items
-						li(class="sort__view-item sort__view-" + item data-view= item)
-							a(href="#" class="sort__view-link")
-								.sort__view-icon
-	.products
-		ul.products__list#products-list
+section.change__block
+	header.header__cort
+		h4.sort__of Сортировать по
+		.sort__select
+			select.sort__select-elem
+				- var options = ["по цене", "по популярности"]
+				each option in options
+					option(value="")= option
+		ul.variants__list
+			- var variants= ['six', 'three', 'nine']
+			each variant in variants
+				li(class="variants__item" class="variants__link_" + variant)
+					a(href="#" class="variants__link" id="variants__link_" + variant)
+						.sort__view-icon
+		h4.variants__catalog Вид каталога
+	section.tovar__box
+		ul(id="modificate" class="tovar__list modific_six") 
 			- var questions = ['Тип SIM-карты','Количество SIM-карт','Цвет','ОC','Связь 3G','4G (LTE)','GPS-модуль']
-			- Samsung = ['Samsung GT-l9301l GALAXY S 3','Micro-SIM','1','Белый','Android','Есть','Нет','Есть', 4, '11 090', '189238']
-			- Lumia640 = ['Microsoft Lumia 640 RM-1077','Micro-SIM','2','Белый','Windows Phone','Есть','Нет','A-GPS', 4, '10 990', '283135']
-			- Archos = ['Archos 50 Oxygen Plus','Micro-SIM','2','Серый','Android','Есть','Нет','Есть',4,'9 990', '345328']
-			- Philips = ['Philips S398 Black','','2','','Android','','Нет','',4,'8 990', '589338']
-			- Lumia430 = ['Microsoft Lumia 430 RM-10','Micro-SIM','2','Чёрный','Windows Phone','Есть','Нет','A-GPS',4,'5 390', '387228']
-			- Senseit = ['Senseit L301 Black','Micro-SIM','2','Чёрный','Android','Есть','Нет','Есть',4,'4 990', '359110']
-			- HIGHSCREEN = ['HIGHSCREEN WinWin Black','Micro-SIM','2','Чёрный','Windows Phone','Есть','Нет','Есть',4,'3 990', '422105']
-			- Alcatel = ['Alcatel OT4013D PIXI 3(2 SIM)','Micro-SIM','2','Белый','Android','Есть','Нет','A-GPS',4,'3 290', '112234']
-			- Fly = ['Fly IQ434 Era Nano 5','Micro-SIM','2','Чёрный','Android','Нет','Нет','Нет',4,'1 790', '187537']
+			- Samsung = ['Samsung GT-l9301l GALAXY S 3','Micro-SIM','1','Белый','Android','Есть','Нет','Есть', 4, '11 090', '189238', 'Смартфон Samsung GT-I9301I GALAXY S 3 Ceramic White Моноблок, Micro-SIM, Android 4.4, 3G, Bluetooth 4.0, EDGE, GPRS, WAP, Wi-Fi, Количество ядер процессора 4, Частота процессора 1400 МГц...']
+			- Lumia640 = ['Microsoft Lumia 640 RM-1077','Micro-SIM','2','Белый','Windows Phone','Есть','Нет','A-GPS', 4, '10 990', '283135', 'Смартфон Samsung GT-I9301I GALAXY S 3 Ceramic White Моноблок, Micro-SIM, Android 4.4, 3G, Bluetooth 4.0, EDGE, GPRS, WAP, Wi-Fi, Количество ядер процессора 4, Частота процессора 1400 МГц...']
+			- Archos = ['Archos 50 Oxygen Plus','Micro-SIM','2','Серый','Android','Есть','Нет','Есть',4,'9 990', '345328', 'Смартфон Samsung GT-I9301I GALAXY S 3 Ceramic White Моноблок, Micro-SIM, Android 4.4, 3G, Bluetooth 4.0, EDGE, GPRS, WAP, Wi-Fi, Количество ядер процессора 4, Частота процессора 1400 МГц...']
+			- Philips = ['Philips S398 Black','','2','','Android','','Нет','',4,'8 990', '589338', 'Смартфон Samsung GT-I9301I GALAXY S 3 Ceramic White Моноблок, Micro-SIM, Android 4.4, 3G, Bluetooth 4.0, EDGE, GPRS, WAP, Wi-Fi, Количество ядер процессора 4, Частота процессора 1400 МГц...']
+			- Lumia430 = ['Microsoft Lumia 430 RM-10','Micro-SIM','2','Чёрный','Windows Phone','Есть','Нет','A-GPS',4,'5 390', '387228', 'Смартфон Samsung GT-I9301I GALAXY S 3 Ceramic White Моноблок, Micro-SIM, Android 4.4, 3G, Bluetooth 4.0, EDGE, GPRS, WAP, Wi-Fi, Количество ядер процессора 4, Частота процессора 1400 МГц...']
+			- Senseit = ['Senseit L301 Black','Micro-SIM','2','Чёрный','Android','Есть','Нет','Есть',4,'4 990', '359110', 'Смартфон Samsung GT-I9301I GALAXY S 3 Ceramic White Моноблок, Micro-SIM, Android 4.4, 3G, Bluetooth 4.0, EDGE, GPRS, WAP, Wi-Fi, Количество ядер процессора 4, Частота процессора 1400 МГц...']
+			- HIGHSCREEN = ['HIGHSCREEN WinWin Black','Micro-SIM','2','Чёрный','Windows Phone','Есть','Нет','Есть',4,'3 990', '422105', 'Смартфон Samsung GT-I9301I GALAXY S 3 Ceramic White Моноблок, Micro-SIM, Android 4.4, 3G, Bluetooth 4.0, EDGE, GPRS, WAP, Wi-Fi, Количество ядер процессора 4, Частота процессора 1400 МГц...']
+			- Alcatel = ['Alcatel OT4013D PIXI 3(2 SIM)','Micro-SIM','2','Белый','Android','Есть','Нет','A-GPS',4,'3 290', '112234', 'Смартфон Samsung GT-I9301I GALAXY S 3 Ceramic White Моноблок, Micro-SIM, Android 4.4, 3G, Bluetooth 4.0, EDGE, GPRS, WAP, Wi-Fi, Количество ядер процессора 4, Частота процессора 1400 МГц...']
+			- Fly = ['Fly IQ434 Era Nano 5','Micro-SIM','2','Чёрный','Android','Нет','Нет','Нет',4,'1 790', '187537', 'Смартфон Samsung GT-I9301I GALAXY S 3 Ceramic White Моноблок, Micro-SIM, Android 4.4, 3G, Bluetooth 4.0, EDGE, GPRS, WAP, Wi-Fi, Количество ядер процессора 4, Частота процессора 1400 МГц...']
 			- phones = [Samsung, Lumia640, Archos, Philips, Lumia430, Senseit, HIGHSCREEN, Alcatel, Fly]
 			- for (var i = 0; i < phones.length; i++)
-				li.products__item
-					.products__item-inner
-						.products__left
-							.products__slideshow
-								.products__slideshow-block
-									a(href="#" class="products__slideshow-display")
-										img(src="img/telephone/shop_"+i+"0.png" alt="" class="products__slideshow-img")
-									ul.products__slideshow-thumbs
-										- for (var j = 1; j <= 3; j++)
-											li.products__slideshow-item
-												a(href="#" class="products__slideshow-link")
-													img(src="img/telephone/shop_"+i+j+".png" alt="" class="products__slideshow-thumb-img")
-								.products__article
-									.products__article-word Артикул
-									.products__article-num= phones[i][10]
-							.products__desc
-								.products__desc-title= phones[i][0]
-								ul.products__desc-options
-									- var index = 0;
-									- for (var k = 0, c = 1; k < questions.length; k++, c++)
-										li(class="products__option-item" + ( !(index++ % 2) ? ' products__option-item_colored' : ''))
-											.products__option-key= questions[k]
-											.products__option-value= phones[i][c]
-								div(class="products__rating" data-rating= phones[i][8])
-						.products__right
-							.products__info
-								.products__price= phones[i][9]
-									i.rub
-							.products__info-bottom
-								a(href="#" class="products__buy-btn") В корзину
-								.products__availability
-									| В наличии
-	.pagination
-		ul.pagination__list
-			li.pagination__item.pagination__item_prev
-				a(href="#" class="pagination__link")
-					.pagination__mark
-			- for (var i = 1; i < 4; i++)
-				li.pagination__item
-					a(href="#" class="pagination__link")
-										.pagination__mark= i
-			li.pagination__item.pagination__item_next
-				a(href="#" class="pagination__link")
-					.pagination__mark
+				- var f = 0;
+				li.tovar__item
+					.tovar__images__box
+						img(src="img/telephone/shop_"+i+"0.png" class="tovar__image__big")
+						ul.tovar__images__list
+							- for (var j = 1; j < 4; j++)
+								li.tovar__images__item
+									img(src="img/telephone/shop_"+i+j+".png" class="tovar__image__small")
+						.tovar_articl Артикул 
+							span.article_span #{phones[i][10]}
+					.tovar__about__box
+						h4.tovar__zagolovok #{phones[i][f]}
+						- f ++
+						ul.tovar__option__list
+							- for (var k = 0; k < questions.length; k++, f++)
+								li.tovar__opton__item
+									.tovar__question #{questions[k]}
+									.tovar__answer #{phones[i][f]}
+						//- p.tovar__about__tekst #{phones[i][11]}
+						.star__box
+							ul.stars__list
+								- for (var a = 0; a < phones[i][f]; a++)
+									li.stars__item
+										img(src="img/icons/stars/filed.png")
+								- for (var a = 0; a < 5 - phones[i][f]; a++)
+									li.stars__item
+										img(src="img/icons/stars/empty.png")
+							.star__number #{phones[i][f]}
+					- f ++
+					.stoimost_box
+						p.tovar__stoimost #{phones[i][f]}&nbsp;
+							i.rouble
+						.podval__center
+							a(href="#" class="in_korzina") В корзину
+							.nalichie__sfera
+							p.tovar__nalichie В наличии
+	footer.podval__battons
+		ul.battons__list
+			- var buttons= ['<', '1', '2', '3', '>']
+			each button in buttons
+				li.battons__item
+					a(href="#" class="battons__link") #{button}

@@ -1,149 +1,81 @@
-var SliderWidget = (function() {
+var myModule = (function() {
 
-	var _insertValues = function($this) {
-		var container = $this.closest('.filter__slider'),
-			from = container.find('.filter__slider-input_from'),
-			to = container.find('.filter__slider-input_to');
-
-		var values = $this.slider("option", "values");
-
-		from.val(values[0]);
-		to.val(values[1]);
-	}
-
-	return {
-		init: function() {
-
-			$(".filter__slider-element").each(function() {
-				var $this = $(this),
-					min = parseInt($this.data('min')),
-					max = parseInt($this.data('max'));
-
-				$this.slider({
-			    	range: true,
-			    	min: min,
-			    	max: max,
-			    	values: [min, max],
-			    	slide: function() {
-			    		_insertValues($this);
-			    	},
-			    	create: function() {
-			    		_insertValues($this);
-			    	}
-			    });
-			});
-		}
-	}
-}());
-
-var RatingWidget = (function(){
-
-	var _letTheStarsShining = function(ratingAmount) {
-		var starsArray = [];
-
-		for (var i = 0; i < 5; i++) {
-			var starClassName = (i < ratingAmount) ? "products__rating-stars-item products__rating-stars-item_filed" : "products__rating-stars-item";
-			var star = $("<li>", {
-				class: starClassName
-			});
-
-			starsArray.push(star);
-		};
-
-		return starsArray;
+	var init = function() {
+		_setUpListners();
 	};
 
-	var _generateMarkup = function(ratingAmount, elementToAppend) {
-		var ul = $("<ul>", {
-			class: "products__rating-stars",
-			html: _letTheStarsShining(ratingAmount)
+	var _setUpListners = function() {
+		$(document).ready(_sliderStoimost);
+		$(".filter__reset").on('click', _resetCheckox);
+		$('.filter__title').on('click', _accordeon);
+		$('#variants__link_six').on('click', _linkSix);
+		$('#variants__link_nine').on('click', _linkNine);
+		$('#variants__link_three').on('click', _linkThree);
+		$(".tovar__image__small").on('click', _slideShow);
+		$(".sort__select-elem").select2({
+			minimumResultsForSearch: Infinity
 		});
-
-		var ratingDisplay = $("<div>", {
-			class: "products__rating-amount",
-			text: ratingAmount
-		});
-
-		elementToAppend.append([ul, ratingDisplay])
 	};
 
-	return {
-		init: function() {
-			$(".products__rating").each(function() {
-				var $this = $(this),
-					ratingAmount = parseInt($this.data("rating"));
-
-				_generateMarkup(ratingAmount, $this);
-			});
-		}
-	}
-}());
-
-var ViewStateChange = (function(){
-
-	var _previousClass = "";
-
-	var _changeState = function($this) {
-		var item = $this.closest(".sort__view-item"),
-			view = item.data("view"),
-			listOfItems = $("#products-list"),
-			modificationPrefix = "products__list_",
-			classOfViewState = modificationPrefix + view;
-
-		if(_previousClass == "") {
-			_previousClass = listOfItems.attr("class");
-		}
-
-		_changeActiveClass($this);
-		listOfItems.attr("class", _previousClass + " " + classOfViewState);
+	var _linkSix = function(e) {
+		e.preventDefault();
+		console.log('hello this is six');
+		$(this).closest(".variants__item").addClass('active').siblings().removeClass('active');
+		$('#modificate').removeClass('modific_three')
+						.removeClass('modific_nine')
+						.addClass('modific_six');
 	};
 
-	var _changeActiveClass = function($this) {
-		$this.closest(".sort__view-item").addClass('active').siblings().removeClass('active');
-	}
+	var _linkNine = function(e) {
+		e.preventDefault();
+		console.log('hello this is nine');
+		$(this).closest(".variants__item").addClass('active').siblings().removeClass('active');
+		$('#modificate').removeClass('modific_three')
+						.removeClass('modific_six');
+	};
 
-	return {
-		init: function() {
-			$(".sort__view-link").on("click", function(e) {
-				e.preventDefault();
-				_changeState($(this));
-			});
-		}
-	}
-}());
+	var _linkThree = function(e) {
+		e.preventDefault();
+		console.log('hello this is three');
+		$(this).closest(".variants__item").addClass('active').siblings().removeClass('active');
+		$('#modificate').removeClass('modific_nine')
+						.removeClass('modific_six')
+						.addClass('modific_three');
+	};
 
-var Slideshow = (function() {
-
-	var _changeSlide = function($this) {
-		var container = $this.closest(".products__slideshow"),
-			path = $this.find("img").attr("src"),
-			display = container.find(".products__slideshow-img");
-
-		$this.closest(".products__slideshow-item").addClass("active")
-			.siblings().removeClass("active");
-
-		display.fadeOut(function() {
-			$(this).attr("src", path).fadeIn();
+	var _sliderStoimost = function() {
+		$( ".filter__slider-element" ).slider({
+		range: true,
+		min: 0,
+		max: 26000,
+		values: [ 100, 13000 ],
+		slide: function( event, ui ) {
+			//Поле минимального значения
+			$( "#price" ).val(ui.values[ 0 ]);
+			//Поле максимального значения
+			$("#price2").val(ui.values[1]);         }
 		});
-	}
+		//Записываем значения ползунков в момент загрузки страницы
+		//То есть значения по умолчанию
+		$( "#price" ).val($( ".filter__slider-element" ).slider( "values", 0 ));
+		$("#price2").val($(".filter__slider-element").slider( "values", 1 ));
+	};
 
-	return {
-		init: function() {
-			$(".products__slideshow-link").on("click", function(e) {
-				e.preventDefault();
+	var _resetCheckox = function(e) {
+		e.preventDefault();
+		var $this = $(this),
+			container = $this.closest(".filter__item"),
+			checkboxes = container.find("input:checkbox");
 
-				var $this = $(this);
+		checkboxes.each(function() {
+			$(this).prop('checked', false);
+		});
+	};
 
-				_changeSlide($this);
-			});
-		}
-	}
-}());
-
-var Accordeon = (function()  {
-
-	var _openSection = function($this) {
-		var container = $this.closest(".filter__item"),
+	var _accordeon = function(e) {
+		e.preventDefault();
+		var $this = $(this).children();
+			container = $this.closest(".filter__item"),
 			content = container.find(".filter__content"),
 			otherContent = $this.closest(".filter").find(".filter__content");
 
@@ -156,60 +88,22 @@ var Accordeon = (function()  {
 			container.removeClass("active");
 			content.stop(true, true).slideUp();
 		}
-
-		
 	};
 
+	var _slideShow = function() {
+		var $this=$(this),
+			src = $this.attr("src"),
+			container = $this.closest(".tovar__images__box"),
+			display = container.find(".tovar__image__big");
+
+		display.fadeOut(function() {
+			$(this).attr("src", src).fadeIn();
+		});
+	}
+
 	return {
-		init: function() {
-			$(".filter__title-link").on("click", function(e) {
-				e.preventDefault();
-				_openSection($(this));
-			});
-		}
-	}
-}());
+		init: init
+	};
+})();
 
-$(document).ready(function(){
-	if($(".filter").length) {
-		Accordeon.init();
-	}
-
-	if($(".products__slideshow").length) {
-		Slideshow.init();
-	}
-
-	ViewStateChange.init();
-
-	if($(".products__rating").length) {
-		RatingWidget.init();
-	}
-
-	if ($(".filter__slider-element").length) {
-		SliderWidget.init();
-	}
-
-	if($(".sort__select-elem").length) {
-		$(".sort__select-elem").select2({
-			minimumResultsForSearch: Infinity
-		});
-	}
-
-	$(".filter__reset").on("click", function(e) {
-		e.preventDefault();
-
-		var $this = $(this),
-			container = $this.closest(".filter__item"),
-			checkboxes = container.find("input:checkbox");
-
-		checkboxes.each(function() {
-			$(this).prop('checked', false);
-		});
-	});
-
-	/*---------- columnizer ----------*/
-
-	$(".attension__text").columnize({
-		width: 500
-	});
-});
+myModule.init();

@@ -6,7 +6,7 @@
 
 /* ------------ fonts ------------*/
 
-@import "_misc/_fonts";
+@import "_misc/fonts";
 
 /* --------- mixins --------- */
 
@@ -26,18 +26,9 @@ $black: #333;
 $orange: #ff6600;
 $grey: #dee1e4;
 
-/* ---------- plugins ---------- */
-
-@import "_plugins/jquery-ui";
-@import "_plugins/select2";
-
-/* ---------- widgets ---------- */
-
-@import "_widgets/_select";
-@import "_widgets/_slider";
-
-/* ---------- sections ---------- */
-@import "sections/_header";
-@import "sections/_content";
-@import "sections/_sidebar";
-@import "sections/_footer";
+/* --------- sections --------- */
+@import "sections/header";
+@import "sections/content";
+@import "sections/aside";
+@import "sections/main_footer";
+@import "sections/footer";

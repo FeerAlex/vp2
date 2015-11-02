@@ -1,21 +1,17 @@
 footer.footer
-	.footer__top
-		.container
-			.footer__left
-				.logo.logo_footer
-					img(src="img/logos/cooltech-footer.png" alt="cooltech logo" class="logo__img")
-					.logo__text cooltech
-			.footer__right
-				ul.socials.socials_footer
+	.mid
+		.logo__tip
+			a(href="#" class="footer__logo__link")
+				img(src="img/logos/cooltech-footer.png" class="footer__logo_img")
+		.footer__links
+			ul.footer__links__list
 					- var items = ["fb", "vk", "tw"]
 					each item in items
 						li(class="socials__item socials__item_" + item)
 							a(href="#" class="socials__link")
-				ul.footer__nav
-					- var items = ['Планшеты', 'Мобильные телефоны', 'Mp3 плееры', 'Персональные компьютеры', 'Ноутбуки', 'Аксессуары', 'Бытовая техника']
-					each item in items
-						li.footer__nav-item
-							a(href="#" class="footer__nav-link")= item
-	.footer__bottom
-		.container
-			.footer__copyright All rights reserved. 2015. No copy allowed.
+			ul.footer__menu__list
+				- var links = ['Планшеты', 'Мобильные телефоны', 'Mp3 плееры', 'Персональные компьютеры', 'Ноутбуки', 'Аксессуары', 'Бытовая техника']
+				each link in links
+					li.footer__menu__item
+						a(href="#" class="footer__menu__link") #{link}
+	p.copy__right All rights reserved. 2015. no copy alowed

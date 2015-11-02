@@ -1,42 +1,54 @@
 header.header
-	.header__top
-		.container
-			.header__left
-				- var icons = ['fb', 'vk', 'tw']
-				ul.socials
-					each icon in icons
-						li(class="socials__item socials__item_" + icon)
-							a(href="#" class="socials__link")
-								.socials__icon
-			.header__right
-				.address ул. Маяковского 6, офис 17
-				a(href="tel:+79211231312" class="phone") +7 (921) 123-13-12
-	.header__bottom
-		.container
+	.header__block.header__block_top
+		.mid
+			ul.social__list
+				- var socials = ['fb', 'vk', 'tw']
+				each social in socials
+					li.socials__item
+						a(href="#" class="socials__link social__link_" + social)
+			ul.contact__list
+				li.contact__item
+					a(href="#" class="contact__link contact__link_street") ул. Маяковская 6, офис 17
+				li.contact__item
+					a(href="tel:+79211231213" class="contact__link contact__link_phone") +7 (921) 123-12-13
+	.header__block
+		.mid
 			a(href="#" class="logo")
-				img(src="img/logos/cooltech.png" alt="cooltech logo" class="logo__img")
-				.logo__text cooltech
-			.search
-				form.search__form
-					input(name="" type="text" placeholder="Что будем искать" class="search__form-input")
-					input(name="" type="submit" value="Найти" class="search__form-submit")
-			.menu
-				- var items = ['Карта проезда', 'История заказов', 'Корзина']
-				ul.menu__list
-					each item in items
+				img(src="img/logos/cooltech.png" alt="logo")
+			.form
+				form.form__search
+					input(type="text" class="form__search__input" placeholder="Что будем искать")
+					input(type="submit" class="form__search__button" value="Найти")
+			ul.search__map__list
+				li.search__map__item
+					a(href="#" class="search__map__link") Карта проезда
+				li.search__map__item
+					a(href="#" class="search__map__link") История заказов
+				li.search__map__item
+					a(href="#" class="search__map__link") Корзина
+	.header__block
+		.mid
+			ul.category__list
+				- var kategorys = ['Планшеты', 'Мобильные телефоны', 'Mp3 плееры', 'Персональные компьютеры', 'Ноутбуки', 'Аксессуары', 'Бытовая техника']
+				each kategory in kategorys
+					- if ( kategory == 'Мобильные телефоны')
+						li.category__item 
+							a(href="#" class="category__link category__link_active") #{kategory}
+					- else
+						li.category__item 
+							a(href="#" class="category__link") #{kategory}
+	.header__block
+		.mid
+			ul.menu__list
+				- var menus = ['Главная', '>', 'Каталог']
+				each menu in menus
+					- if ( menu == '>')
+						li.menu__item #{menu}
+					- else if ( menu == 'Каталог')
 						li.menu__item
-							a(href="#" class="menu__link")= item
-nav.nav
-	.container
-		ul.nav__list
-			- var telephones = ['Планшеты', 'Мобильные телефоны', 'Mp3 плееры', 'Персональные компьютеры', 'Ноутбуки', 'Аксессуары', 'Бытовая техника']
-			each telephone in telephones
-				li(class="nav__item nav__item_" + ((telephone == "Мобильные телефоны") ? "active" : ""))
-					a(href="#" class="nav__link")= telephone
-.breadcrumbs
-	.container
-		ul.breadcrumbs__list
-			- var menus = ["Главная", "Каталог"]
-			each menu in menus
-				li(class="breadcrumbs__item" + ((menu == "Каталог") ? " active" : ""))
-					a(href="#" class="breadcrumbs__link")= menu
+							block link_active
+					- else
+						li.menu__item 
+							a(href="#" class="menu_link") #{menu}
+			h4.category
+				block category

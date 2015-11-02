@@ -1,9 +1,54 @@
 .sidebar {
+	width: 333px;
 	float: left;
-	width: 335px;
 }
 
-.categories {
+$colors: #fff, #ccc, #000, #0a3153, #ff1800, #fff343, #fb914a, #92c37c, #40a6ff, #9870ad, #dc78ad, #7f401d;
+
+$i: 1;
+
+@each $color in $colors {
+	.color__#{$i} {
+		background: $color;
+	}
+	$i: $i + 1;
+}
+
+.ui-slider.ui-slider-horizontal.ui-widget.ui-widget-content.ui-corner-all {
+	height: 3px;
+	width: 273px;
+	background: #ccc;
+	border: none;
+	border-radius: 0;
+}
+.ui-slider-range.ui-widget-header {
+	background: #ff6600;
+}
+.ui-slider-handle.ui-state-default.ui-corner-all {
+	border: none;
+	border-radius: 0;
+	top: 3px;
+	margin-left: -4px;
+	@include get-sprite($misc-sprite, slider-control);
+	width: 8px;
+	height: 14px;
+}
+.ui-slider-horizontal {
+	* {
+		outline: none !important;
+	}
+	margin-bottom: 14px;
+}
+
+.filter__slider-input {
+	border: 1px solid #dee1e4;
+	@include border-radius(5px);
+	margin-right: -7px;
+	padding: 10px 8px;
+	width: 83px;
+	@include inlineblock(middle);
+}
+.categories__box {
 	margin-bottom: 40px;
 }
 
@@ -71,6 +116,7 @@ $accordeon-map: sprite-map("icons/accordeon/*.png", $spacing: 70px);
 .filter__title {
 	padding-right: 30px;
 	position: relative;
+	cursor: pointer;
 
 	&:after {
 		content: "";
@@ -93,7 +139,7 @@ $accordeon-map: sprite-map("icons/accordeon/*.png", $spacing: 70px);
 	color: $black;
 	font-size: 16px;
 	line-height: 18px;
-	@include open-sans(semibold);
+	font-family: "Open Sans Semibold";
 	text-decoration: none;
 }
 
@@ -142,7 +188,7 @@ $accordeon-map: sprite-map("icons/accordeon/*.png", $spacing: 70px);
 }
 
 .filter__choose-text {
-	@include inlineblock(top);
+	@include inlineblock(middle);
 	font-size: 14px;
 	line-height: 16px;
 	color: $black;
@@ -236,7 +282,6 @@ $accordeon-map: sprite-map("icons/accordeon/*.png", $spacing: 70px);
 }
 
 .filter__slider-input {
-	@extend .search__form-input;
 	padding: 10px 8px;
 	width: 83px;
 	@include inlineblock(middle);

@@ -1,11 +1,11 @@
-.sidebar
-	.categories
+aside.sidebar
+	.categories__box
 		ul.categories__list
 			- var items =["Флагманы", "Бюджетная линейка"]
 			each item in items
 				li(class="categories__item" + ((item == "Бюджетная линейка") ? " " + "active" : ""))
 					a(href="#" class="categories__link")= item
-	.filter
+	.filter__box
 		ul.filter__list
 			li.filter__item
 				.filter__title
@@ -41,20 +41,19 @@
 						.filter__slider-displays
 							.filter__slider-left
 								.filter__slider-text от
-								input(name="" type="text" placeholder="" class="filter__slider-input filter__slider-input_from")
+								input(name="" type="text" placeholder="" class="filter__slider-input" id="price")
 							.filter__slider-right
 								.filter__slider-text до
-								input(name="" type="text" placeholder="" class="filter__slider-input filter__slider-input_to")
+								input(name="" type="text" placeholder="" class="filter__slider-input" id="price2")
 						div(class="filter__slider-element" data-min="0" data-max="30000")
 			li.filter__item
 				.filter__title
 					a(href="#" class="filter__title-link") Цвет
 				.filter__content
 					ul.filter__colors
-						- var colors = ["fff", "ccc", "000", "0a3153", "ff1800", "fff343", "fb914a", "92c37c", "40a6ff", "9870ad", "dc78ad", "7f401d", ]
-						each color in colors
+						- for (var o = 1; o < 13; o++)
 							li.filter__colors-item
-								a(href="" class="filter__colors-link" style="background-color: #" + color)
+								a(href="" class="filter__colors-link color__" + o)
 			li.filter__item
 				.filter__title
 					a(href="#" class="filter__title-link") Операционная система
