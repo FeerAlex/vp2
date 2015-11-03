@@ -8,37 +8,21 @@ var myModule = (function() {
 		$(document).ready(_sliderStoimost);
 		$(".filter__reset").on('click', _resetCheckox);
 		$('.filter__title').on('click', _accordeon);
-		$('#variants__link_six').on('click', _linkSix);
-		$('#variants__link_nine').on('click', _linkNine);
-		$('#variants__link_three').on('click', _linkThree);
+		$(".variants__item").on('click', _variant);
 		$(".tovar__image__small").on('click', _slideShow);
 		$(".sort__select-elem").select2({
 			minimumResultsForSearch: Infinity
 		});
+		$(".info__text_column").columnize({
+			width: 500
+		});
 	};
 
-	var _linkSix = function(e) {
+	var _variant = function(e) {
 		e.preventDefault();
-		$(this).closest(".variants__item").addClass('active').siblings().removeClass('active');
-		$('#modificate').removeClass('modific_three')
-						.removeClass('modific_nine')
-						.addClass('modific_six');
-	};
-
-	var _linkNine = function(e) {
-		e.preventDefault();
-		$(this).closest(".variants__item").addClass('active').siblings().removeClass('active');
-		$('#modificate').removeClass('modific_three')
-						.removeClass('modific_six');
-	};
-
-	var _linkThree = function(e) {
-		e.preventDefault();
-		$(this).closest(".variants__item").addClass('active').siblings().removeClass('active');
-		$('#modificate').removeClass('modific_nine')
-						.removeClass('modific_six')
-						.addClass('modific_three');
-	};
+		var thisId = $(this).attr("id");
+		$('#modificate').removeClass('modific_three modific_nine modific_six').addClass(thisId);
+	}
 
 	var _sliderStoimost = function() {
 		$( ".filter__slider-element" ).slider({

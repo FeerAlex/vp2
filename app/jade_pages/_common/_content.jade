@@ -9,7 +9,7 @@ section.change__block
 		ul.variants__list
 			- var variants= ['six', 'three', 'nine']
 			each variant in variants
-				li(class="variants__item" class="variants__link_" + variant)
+				li(class="variants__item" id="modific_" + variant class="variants__link_" + variant)
 					a(href="#" class="variants__link" id="variants__link_" + variant)
 						.sort__view-icon
 		h4.variants__catalog Вид каталога

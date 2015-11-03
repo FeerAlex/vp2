@@ -8,18 +8,25 @@
 	margin: 0 0 20px 0;
 	display: block;
 }
-.info__text__left {
-	width: 535px;
-	float: left;
-}
-.info__text__right {
-	width: 535px;
-	float: right;
-}
-.info__text {
-	font-family: "Open Sans Regular";
-	font-size: 14px;
-	color: #333;
-	margin-bottom: 25px;
-	text-align: justify;
+
+.info__text_column {
+	p {
+		font-family: "Open Sans Regular";
+		font-size: 14px;
+		color: #333;
+		margin-bottom: 20px;
+	// text-align: justify;
+	}
+
+	.column {
+		&.first {
+			width: 48% !important;
+			float: left !important;
+		}
+
+		&.last {
+			width: 48% !important;
+			float: right !important;
+		}
+	}
 }

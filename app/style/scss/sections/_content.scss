@@ -443,7 +443,7 @@ $items: six, nine, three;
 		display: none;
 	}
 	.tovar__image__big {
-		display: none;
+		display: none !important;
 	}
 	.tovar__option__list {
 		display: none;
@@ -526,6 +526,7 @@ $select-tr-map: sprite-map('icons/select-tr/*.png', $spacing: 70px);
 		font-size: 12px;
 		font-family: "Open Sans Light";
 		color: #7f7f7f;
+		line-height: 24px !important;
 	}
 
 	.select2-dropdown {
