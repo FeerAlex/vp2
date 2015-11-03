@@ -144,7 +144,6 @@ $items: six, nine, three;
 
 .tovar__image__big{
 	width: 100%;
-	
 }
 .tovar__image__big__wrapper {
 	width: 132px;
@@ -152,6 +151,7 @@ $items: six, nine, three;
 	border: 1px solid #dee1e4;
 	border-radius: 2px;
 	margin-bottom: 15px;
+	overflow:hidden;
 }
 
 .tovar__image__small {

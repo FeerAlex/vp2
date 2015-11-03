@@ -1082,6 +1082,7 @@ footer {
   border: 1px solid #dee1e4;
   border-radius: 2px;
   margin-bottom: 15px;
+  overflow: hidden;
 }
 
 .tovar__image__small {
