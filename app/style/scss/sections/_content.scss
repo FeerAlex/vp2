@@ -137,6 +137,9 @@ $items: six, nine, three;
 	&:hover {
 		border-color: #ff6600;
 	}
+	&.active {
+		border-color: #ff6600;
+	}
 }
 
 .tovar__image__big{
@@ -150,6 +153,7 @@ $items: six, nine, three;
 .tovar__image__small {
 	width: 32px;
 	height: 32px;
+	cursor: pointer;
 }
 
 .tovar__zagolovok {

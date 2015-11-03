@@ -67,20 +67,28 @@ $socials-map: sprite-map("icons/socials/*.png", $spacing: 70px);
 	text-decoration: none;
 	color: #333;
 }
+ 
 .contact__link_street {
-	background: url(../../img/icons/map-pin.png) left center no-repeat;
-	padding-left: 20px;
-  	font-size: 14px;
+	font-size: 14px;
   	font-family: "Open Sans Regular";
+	&:before {
+		content: "";
+		@include get-sprite($misc-sprite, pin);
+		@include inlineblock(middle);
+		margin-right: 9px;
+	}
 }
+
 .contact__link_phone {
-	background: url(../../img/icons/telephone.png) left center no-repeat;
-	padding-left: 20px;
 	font-size: 18px;
   	font-family: "Open Sans Semibold";
+	&:before {
+		content: "";
+		@include inlineblock(middle);
+		margin-right: 11px;
+		@include get-sprite($misc-sprite, phone);
+	}
 }
-
-
 
 
 // MODULE 2 START
@@ -172,9 +180,7 @@ $socials-map: sprite-map("icons/socials/*.png", $spacing: 70px);
 	}
 }
 .category__link.category__link_active {
-	background-image: -webkit-linear-gradient(326deg, rgb(255,102,0) 0%, rgb(255,106,27) 45%, rgb(255,110,53) 99%);
-	background-image: -o-linear-gradient(326deg, rgb(255,102,0) 0%, rgb(255,106,27) 45%, rgb(255,110,53) 99%);
-	background-image: linear-gradient(56deg, rgb(255,102,0) 0%, rgb(255,106,27) 45%, rgb(255,110,53) 99%);
+	background: $orange;
 	font-family: "Open Sans Semibold";
 	color: #fff;
 }

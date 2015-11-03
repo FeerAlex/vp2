@@ -1,7 +1,10 @@
 .footer {
 	background: url("../../../img/bg.jpg");
-	padding-top: 35px;
+	position: relative;
 	@include clearfix();
+	.mid {
+		margin-top: 35px;
+	}
 }
 .logo__tip {
 	width: 50%;

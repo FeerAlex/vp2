@@ -25,14 +25,15 @@ html(lang="ru-RU")
 		script(src="bower_components/modernizer/modernizr.js")
 	body
 		
-		include _common/_header
+		.wrapper
+			include _common/_header
 
-		main
-			.mid
-				include _common/_content
-				include _common/_aside
-			.mid
-				include _common/_main_footer
+			main
+				.mid
+					include _common/_content
+					include _common/_aside
+				.mid
+					include _common/_main_footer
 
 		include _common/_footer
 

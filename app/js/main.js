@@ -19,7 +19,6 @@ var myModule = (function() {
 
 	var _linkSix = function(e) {
 		e.preventDefault();
-		console.log('hello this is six');
 		$(this).closest(".variants__item").addClass('active').siblings().removeClass('active');
 		$('#modificate').removeClass('modific_three')
 						.removeClass('modific_nine')
@@ -28,7 +27,6 @@ var myModule = (function() {
 
 	var _linkNine = function(e) {
 		e.preventDefault();
-		console.log('hello this is nine');
 		$(this).closest(".variants__item").addClass('active').siblings().removeClass('active');
 		$('#modificate').removeClass('modific_three')
 						.removeClass('modific_six');
@@ -36,7 +34,6 @@ var myModule = (function() {
 
 	var _linkThree = function(e) {
 		e.preventDefault();
-		console.log('hello this is three');
 		$(this).closest(".variants__item").addClass('active').siblings().removeClass('active');
 		$('#modificate').removeClass('modific_nine')
 						.removeClass('modific_six')
@@ -77,7 +74,7 @@ var myModule = (function() {
 		var $this = $(this).children();
 			container = $this.closest(".filter__item"),
 			content = container.find(".filter__content"),
-			otherContent = $this.closest(".filter").find(".filter__content");
+			otherContent = $this.closest(".filter__box").find(".filter__content");
 
 		if(!container.hasClass("active")) {
 			otherContent.slideUp().closest(".filter__item").removeClass("active");
@@ -95,6 +92,9 @@ var myModule = (function() {
 			src = $this.attr("src"),
 			container = $this.closest(".tovar__images__box"),
 			display = container.find(".tovar__image__big");
+
+		$this.closest(".tovar__images__item").addClass("active")
+			.siblings().removeClass("active");
 
 		display.fadeOut(function() {
 			$(this).attr("src", src).fadeIn();

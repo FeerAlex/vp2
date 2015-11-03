@@ -3,17 +3,6 @@
 	float: left;
 }
 
-$colors: #fff, #ccc, #000, #0a3153, #ff1800, #fff343, #fb914a, #92c37c, #40a6ff, #9870ad, #dc78ad, #7f401d;
-
-$i: 1;
-
-@each $color in $colors {
-	.color__#{$i} {
-		background: $color;
-	}
-	$i: $i + 1;
-}
-
 .ui-slider.ui-slider-horizontal.ui-widget.ui-widget-content.ui-corner-all {
 	height: 3px;
 	width: 273px;
@@ -52,6 +41,16 @@ $i: 1;
 	margin-bottom: 40px;
 }
 
+/*---------- filter ----------*/
+
+.filter__content {
+	display: none;
+	margin-top: 15px;
+}
+
+.filter__list {
+	@extend .categories__list;
+}
 .categories__list {
 	border: 1px solid $grey;
 	@include border-radius(5px);
@@ -66,34 +65,29 @@ $i: 1;
 		border-top: 0 none;
 	}
 
-	&.active {
-		.categories__link {
+	.filter__choose-elem {
+		border: 0 none;
+		display: block;
+		width: 100%;
+		height: 20px;
+		padding: 11px 30px;
+		color: #7f7f7f;
+		text-decoration: none;
+		@include border-radius(0);
+	}
+	.filter__choose-input {
+		
+		&:checked + .filter__choose-elem {
 			background: #d9e5ea;
 			color: #5d656c;
+
+			&:after {
+				display: none;
+			}
 		}
 	}
+
 }
-
-.categories__link {
-	display: block;
-	width: 100%;
-	padding: 11px 30px;
-	color: #7f7f7f;
-	text-decoration: none;
-	box-sizing: border-box;
-}
-
-/*---------- filter ----------*/
-
-.filter__content {
-	display: none;
-	margin-top: 30px;
-}
-
-.filter__list {
-	@extend .categories__list;
-}
-
 $accordeon-map: sprite-map("icons/accordeon/*.png", $spacing: 70px);
 
 .filter__item {
@@ -150,6 +144,7 @@ $accordeon-map: sprite-map("icons/accordeon/*.png", $spacing: 70px);
 .filter__choose-label {
 	display: block;
 	position: relative;
+	cursor: pointer;
 }
 
 .filter__choose-elem {
@@ -200,11 +195,21 @@ $accordeon-map: sprite-map("icons/accordeon/*.png", $spacing: 70px);
 
 .filter__choose_checkboxes {
 	.filter__choose-input {
+		&:hover {
+			&+ .filter__choose-elem {
+				&:after {
+					@include get-sprite($misc-sprite, checkbox-hover);
+					opacity: 1;
+				}
+			}
+			
+		}
 		&:checked + .filter__choose-elem {
 			background: $orange;
 
 			&:after {
 				opacity: 1;
+				@include get-sprite($misc-sprite, checkbox);
 			}
 		}
 	}
@@ -219,10 +224,10 @@ $accordeon-map: sprite-map("icons/accordeon/*.png", $spacing: 70px);
 		&:after {
 			content: "";
 			display: block;
+			background: transparent;
 			@include absolute-center;
 			opacity: 0;
 			@include transition(.2s);
-			@include get-sprite($misc-sprite, checkbox);
 			@include border-radius(0);
 			width: 13px !important;
 			height: 10px !important;
@@ -241,23 +246,55 @@ $accordeon-map: sprite-map("icons/accordeon/*.png", $spacing: 70px);
 }
 
 /*---------- colors ----------*/
+.filter__colors {
+	.filter__colors-item {
+		@include inlineblock();
+		
+		margin-left: 10px;
+		margin-bottom: 13px;
+	}
 
-.filter__colors-link {
-	border: 1px solid $grey;
-	width: 37px;
-	height: 37px;
-	display: block;
+	.filter__choose-label {
+		position: relative;
+	}
+
+	.filter__choose-elem {
+		border-radius: 0;
+		width: auto;
+		height: auto;
+		border: 3px solid transparent;
+		&:after {
+			opacity: 0;
+		}
+	}
+
+	.filter__link {
+		border: 1px solid $grey;
+		width: 37px;
+		height: 37px;
+		display: block;
+	}
+
+	.filter__choose-input {
+		position: absolute;
+		top: 0;
+		left: -9999px;
+		
+		&:checked + .filter__choose-elem {
+			border-color: $orange;
+
+		}
+	}
+
 }
 
-.filter__colors-item {
-	@include inlineblock();
-	border: 3px solid transparent;
-	margin-left: 10px;
-	margin-bottom: 8px;
-
-	&:hover {
-		border-color: $orange;
+$colors: #fff, #ccc, #000, #0a3153, #ff1800, #fff343, #fb914a, #92c37c, #40a6ff, #9870ad, #dc78ad, #7f401d;
+$i: 1;
+@each $color in $colors {
+	.color__#{$i} {
+		background: $color;
 	}
+	$i: $i + 1;
 }
 
 .filter__colors {

@@ -20,12 +20,10 @@ header.header
 					input(type="text" class="form__search__input" placeholder="Что будем искать")
 					input(type="submit" class="form__search__button" value="Найти")
 			ul.search__map__list
-				li.search__map__item
-					a(href="#" class="search__map__link") Карта проезда
-				li.search__map__item
-					a(href="#" class="search__map__link") История заказов
-				li.search__map__item
-					a(href="#" class="search__map__link") Корзина
+				- var maps = ["Карта проезда", "История заказов", "Корзина"]
+				each map in maps
+					li.search__map__item
+						a(href="#" class="search__map__link")= map
 	.header__block
 		.mid
 			ul.category__list
