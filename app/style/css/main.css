@@ -1957,7 +1957,7 @@ footer {
 }
 
 .footer {
-  background: url("../../../img/bg.jpg");
+  background: url("../../img/bg.jpg");
   position: relative;
 }
 .footer:before, .footer:after {
