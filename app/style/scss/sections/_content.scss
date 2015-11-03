@@ -143,6 +143,10 @@ $items: six, nine, three;
 }
 
 .tovar__image__big{
+	width: 100%;
+	
+}
+.tovar__image__big__wrapper {
 	width: 132px;
 	height: 132px;
 	border: 1px solid #dee1e4;
@@ -441,7 +445,7 @@ $items: six, nine, three;
 	.tovar__images__list {
 		display: none;
 	}
-	.tovar__image__big {
+	.tovar__image__big__wrapper {
 		display: none !important;
 	}
 	.tovar__option__list {

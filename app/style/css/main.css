@@ -1073,6 +1073,10 @@ footer {
 }
 
 .tovar__image__big {
+  width: 100%;
+}
+
+.tovar__image__big__wrapper {
   width: 132px;
   height: 132px;
   border: 1px solid #dee1e4;
@@ -1405,7 +1409,7 @@ footer {
 .modific_three .tovar__images__list {
   display: none;
 }
-.modific_three .tovar__image__big {
+.modific_three .tovar__image__big__wrapper {
   display: none !important;
 }
 .modific_three .tovar__option__list {
